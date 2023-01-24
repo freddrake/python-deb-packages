@@ -1,0 +1,6 @@
+Package: ::NAME::
+Version: ::VERSION::-::BUILD::
+Description: Keeper Technology Python Installation
+Maintainer: Keeper Technology, LLC
+Architecture: ::ARCH::
+Priority: optional

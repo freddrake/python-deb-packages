@@ -1,0 +1,6 @@
+Build-Depends: libreadline-dev, libtinfo-dev, libncursesw5-dev (>= 5.3),
+               libssl-dev, zlib1g-dev, libbz2-dev, libsqlite3-dev,
+               libffi-dev (>= 3.0.5), libgdbm-dev, liblzma-dev, uuid-dev
+Depends: mime-support, libbz2-1.0, libffi6 (>= 3.0.5), libgdbm3,
+         libncursesw5, libreadline6, libsqlite3-0, libtinfo5, zlib1g,
+         liblzma5, libuuid1, libssl1.0.0
