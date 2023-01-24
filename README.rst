@@ -26,5 +26,5 @@ replacing **3.6.5** with the version number for the Python you want to
 build.
 
 The resulting Python installation will be located in
-**/opt/kt-python36** (again, replacing **36** with the major/minor
+**/opt/cleanpython36** (again, replacing **36** with the major/minor
 versions from the version you specified on the command line).
