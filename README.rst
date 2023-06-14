@@ -1,12 +1,12 @@
-===========================
-Python packaging for Debian
-===========================
+====================================
+Python packaging for Debian & Ubuntu
+====================================
 
-The **build-package.sh** script can build .deb packages for a "clean" Python
-installation on Debian machines with the usual required build
-environment already installed.  The generated produce an installation
-that is independent of the "system" Python, without any 3rd-party
-libraries installed.
+The **build-package.sh** script can build .deb packages for a "clean"
+Python installation on Debian & Ubuntu machines with the usual required
+build environment already installed.  The generated packages produce an
+installation that is independent of the "system" Python, without any
+3rd-party libraries installed.
 
 This allows creation of application packages built on top of Python
 without picking up libraries installed for other purposes on the

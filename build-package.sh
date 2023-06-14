@@ -2,7 +2,7 @@
 #
 # Script to generate a .deb package for Python.
 #
-# Tested with 2.7.14, 2.7.15, 3.5.5, 3.6.5, 3.6.6, 3.6.7, 3.7.0, 3.7.1.
+# Tested with 2.7.*, 3.5.*, 3.6.*, 3.7.*, 3.8.*, 3.9.*, 3.10.*, 3.11.*, 3.12.*.
 #
 distro=$(lsb_release --release --short)
 platform=$(lsb_release --id --short | tr A-Z a-z)
@@ -29,6 +29,22 @@ buildroot="/tmp/pydeb-${VERSION}-$$"
 root="${destdir}${prefix}"
 sources="${top}/sources"
 source="${sources}/Python-${VERSION}.tar.xz"
+
+deps=''
+deppfx="${top}/dependencies/${platform}"
+
+for sfx in "py${SHORTVERSION}.${distro}" "${distro}" "py${SHORTVERSION}" ; do
+    fn="${deppfx}.${sfx}"
+    echo "checking for $fn"
+    if [ -f "$fn" ] ; then
+	deps="$fn"
+	break
+    fi
+done
+if [ -z "${deps}" ] ; then
+    echo >&2 "Could not locate dependencies specification."
+    exit 1
+fi
 
 # Start with a clean slate:
 rm -rf "$destdir"
@@ -87,16 +103,6 @@ sed -e 's|::SHORTVERSION::|'"${SHORTVERSION}"'|g' \
     -e 's|::PATCH::|'"${PATCH}"'|g' \
     <"${top}/control.in" >"${destdir}/DEBIAN/control"
 
-deps='could-not-locate-dependencies'
-if [ -f "${top}/dependencies.py${SHORTVERSION}.${distro}" ] ; then
-    deps="${top}/dependencies.py${SHORTVERSION}.${distro}"
-elif [ -f "${top}/dependencies.${distro}" ] ; then
-    deps="${top}/dependencies.${distro}"
-elif [ -f "${top}/dependencies.py${SHORTVERSION}" ] ; then
-    deps="${top}/dependencies.py${SHORTVERSION}"
-elif [ -f "${top}/dependencies" ] ; then
-    deps="${top}/dependencies"
-fi
 echo "Using dependencies: ${deps}"
 cat "$deps" >>"${destdir}/DEBIAN/control"
 
