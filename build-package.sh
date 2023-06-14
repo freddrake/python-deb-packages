@@ -6,6 +6,9 @@
 #
 distro=$(lsb_release --release --short)
 platform=$(lsb_release --id --short | tr A-Z a-z)
+if [ "$platform" = pop ] ; then
+    platform=ubuntu
+fi
 VERSION=${1:-3.6.7}
 ver=$VERSION
 MAJOR=`echo $ver | sed 's/^\([0-9][0-9]*\)[.].*$/\1/'`
