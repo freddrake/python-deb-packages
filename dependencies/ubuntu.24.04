@@ -1,0 +1,6 @@
+Build-Depends: build-essential, libreadline-dev, libncursesda-dev (>= 6.2),
+               libssl-dev, zlib1g-dev, libbz2-dev, libsqlite3-dev,
+               libffi-dev (>= 3.3), libgdbm-dev, liblzma-dev, uuid-dev
+Depends: openssl, libbz2-1.0, libffi8 (>= 3.4), libgdbm6t64,
+         libncursesw6, libreadline8t64, libsqlite3-0, libtinfo6, zlib1g,
+         liblzma5, libuuid1
