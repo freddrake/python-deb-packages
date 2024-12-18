@@ -1,6 +1,6 @@
 Package: ::NAME::
 Version: ::VERSION::-::BUILD::
-Description: Keeper Technology Python Installation
-Maintainer: Keeper Technology, LLC
+Description: Isolated Python Installation
+Maintainer: Fred Drake <fred@fdrake.net>
 Architecture: ::ARCH::
 Priority: optional
